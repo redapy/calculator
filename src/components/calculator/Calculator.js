@@ -64,7 +64,7 @@ const Calculator = () => {
 
 
     return ( 
-        <Warapper>
+        <Warapper className="warapper">
          <Display display={display} formula={formula} />
          <ButtonsList buttons={buttons} handleInput={handleInput}/>
         </Warapper>      
