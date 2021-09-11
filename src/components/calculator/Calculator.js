@@ -34,7 +34,7 @@ const Calculator = () => {
             //for the other opertors
             } else {
              setDisplay(value);
-             setFormula(formula.replace(/[-+*\/]$/, value))
+             setFormula(formula.replace(/[-+*/]$/, value))
             }
         }
         //prevent more than one decimal point
