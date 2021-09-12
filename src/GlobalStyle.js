@@ -10,5 +10,6 @@ export const GlobalStyle = styled.div`
 body {
     width:100%;
     min-height: 100vh;
+    background-color: aqua;
 }
 `

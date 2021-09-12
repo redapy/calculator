@@ -8,7 +8,8 @@ const Calculator = () => {
     
     const [display, setDisplay] = useState('0');
     const [formula, setFormula] = useState('');
-    const lastPressed = useRef('')
+    const lastPressed = useRef('');
+    const endsWithOperator = /[-+*/]$/;
 
     const handleInput = (value, type) => {
         //Clear and Initita the states 
@@ -33,12 +34,19 @@ const Calculator = () => {
                 setFormula(formula+value);
             //for the other opertors
             } else {
-             setDisplay(value);
-             setFormula(formula.replace(/[-+*/]$/, value))
+                let condition = formula;
+                while (endsWithOperator.test(condition)){
+                    condition = condition.slice(0,-1)
+                    console.log(endsWithOperator.test(condition))
+                    console.log(condition)
+                }
+                setDisplay(value)
+                setFormula(condition+value)
+             
             }
         }
         //prevent more than one decimal point
-        else if (type === 'decimal' && lastPressed.current === 'decimal') {
+        else if (type === 'decimal' && display.includes(".")) {
             return;
         }
         //evalute the result
@@ -53,20 +61,32 @@ const Calculator = () => {
             setDisplay(display);
             setFormula(display+value)
         }
+        else if (type==="number" || type==="decimal") {
+            if (lastPressed.current === "opertor" || display === "0") {
+                setDisplay(value);
+                setFormula(formula+value);
+                lastPressed.current = type
+            } else {
+                setDisplay(display+value);
+                setFormula(formula+value);
+                lastPressed.current = type
+            }
+        }
         //display values and the formula
-        else {
+        else  {
             setDisplay(value);
             setFormula(formula+value);
             lastPressed.current = type
         }
+        
     };
 
 
 
     return ( 
-        <Warapper className="warapper">
-         <Display display={display} formula={formula} />
-         <ButtonsList buttons={buttons} handleInput={handleInput}/>
+        <Warapper >
+            <Display display={display} formula={formula} />
+            <ButtonsList buttons={buttons} handleInput={handleInput}/>
         </Warapper>      
      );
 }
