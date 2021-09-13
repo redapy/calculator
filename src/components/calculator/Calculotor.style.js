@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Warapper = styled.div`
-max-width: 50%;
-margin: O auto;
+width: 250px;
+min-height: 350px;
+display: flex;
+flex-direction: column;
+border-radius: 5%;
 `

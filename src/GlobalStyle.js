@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import {createGlobalStyle} from "styled-components";
 
-export const GlobalStyle = styled.div`
+export const GlobalStyle = createGlobalStyle`
  * {
     margin: 0;
     padding: 0;
@@ -10,6 +10,9 @@ export const GlobalStyle = styled.div`
 body {
     width:100%;
     min-height: 100vh;
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, #055F51, #59A59D, #8AD9D1);
 }
 `

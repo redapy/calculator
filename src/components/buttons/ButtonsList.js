@@ -8,6 +8,7 @@ const ButtonsList = ({buttons, handleInput}) => {
                 <Button 
                     key={button.id} 
                     id={button.id}
+                    type={button.type}
                     onClick = {() =>  handleInput(button.value, button.type)}
                     
                 >{button.value}</Button>
