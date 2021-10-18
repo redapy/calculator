@@ -13,7 +13,7 @@ This is a basic calculator that uses the Formula/Expression Logic. This app use 
 
 - First, use `npm install` to install all the dependencies.
 
-- Start the devolopement server `npm start`.
+- Start the devolopment server `npm start`.
 
 - For more information please refer to [react-app](/react-app.md)
 
